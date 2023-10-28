@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee remove(String firstName, String lastName, int salary, int department) {
+    public Employee  remove(String firstName, String lastName, int salary, int department) {
         Employee employee = new Employee(firstName, lastName, salary, department);
         if (employees.containsKey(employee.getFullName())) {
             return employees.remove(employee.getFullName());

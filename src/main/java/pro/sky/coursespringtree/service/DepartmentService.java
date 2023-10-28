@@ -1,6 +1,6 @@
 package pro.sky.coursespringtree.service;
 
-public interface DepartmentService {
+public interface  DepartmentService {
 
 }
 

@@ -2,7 +2,7 @@ package pro.sky.coursespringtree.model;
 
 import java.util.Objects;
 
-public class Employee {
+public class  Employee {
     private final String firstName;
     private final String lastName;
     private final int salary;
