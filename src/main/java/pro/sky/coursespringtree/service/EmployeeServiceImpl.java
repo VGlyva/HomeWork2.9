@@ -22,12 +22,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (employees.containsKey(employee.getFullName())) {
             throw new EmployeeAlreadyAddedException();
         }
-        employees.put(employee.getFullName(),employee);
+        employees.put(employee.getFullName(), employee);
         return employee;
     }
 
     @Override
-    public Employee  remove(String firstName, String lastName, int salary, int department) {
+    public Employee remove(String firstName, String lastName, int salary, int department) {
         Employee employee = new Employee(firstName, lastName, salary, department);
         if (employees.containsKey(employee.getFullName())) {
             return employees.remove(employee.getFullName());
