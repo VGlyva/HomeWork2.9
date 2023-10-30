@@ -9,6 +9,7 @@ import pro.sky.coursespringtree.model.Employee;
 import pro.sky.coursespringtree.service.DepartmentService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/department")
@@ -20,12 +21,15 @@ public class DepartmentController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<?> getAllByDepartment(@RequestParam(required = false) Integer department) {
-        return department == null ?
-                ResponseEntity.ok(departmentService.getAll())
-                :
-                ResponseEntity.ok(departmentService.getAllByDepartment(department));
+    public Map<Integer, List<Employee>> getAll() {
+        return departmentService.getAll();
     }
+
+    @GetMapping(value = "/all", params = "department")
+    public List<Employee> getAllByDepartment(@RequestParam int department) {
+        return departmentService.getAllByDepartment(department);
+    }
+
 
     @GetMapping("/max-salary")
     public Employee getMaxSalaryByDepartment(@RequestParam int department) {
