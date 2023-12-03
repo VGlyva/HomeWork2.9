@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.*;
 
-public class Employee {
+public class  Employee {
     private final String firstName;
     private final String lastName;
     private final int salary;

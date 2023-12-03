@@ -41,6 +41,14 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
+    public Double getSumSalaryEmployeesByDepartment(int department) {
+        return employeeServiceImpl.findAll()
+                .stream()
+                .filter(employee -> employee.getDepartment() == department)
+                .mapToDouble(Employee::getSalary).sum();
+
+    }
+
     @Override
     public Map<Integer, List<Employee>> getAll() {
         return employeeServiceImpl.findAll()

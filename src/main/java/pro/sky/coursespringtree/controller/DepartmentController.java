@@ -1,10 +1,7 @@
 package pro.sky.coursespringtree.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pro.sky.coursespringtree.model.Employee;
 import pro.sky.coursespringtree.service.DepartmentService;
 
@@ -20,24 +17,28 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/employees")
     public Map<Integer, List<Employee>> getAll() {
         return departmentService.getAll();
     }
 
-    @GetMapping(value = "/all", params = "department")
-    public List<Employee> getAllByDepartment(@RequestParam int department) {
+    @GetMapping("/{id}/employees")
+    public List<Employee> getAllByDepartment(@PathVariable("id") int department) {
         return departmentService.getAllByDepartment(department);
     }
 
 
-    @GetMapping("/max-salary")
-    public Employee getMaxSalaryByDepartment(@RequestParam int department) {
+    @GetMapping("/{id}/salary/max")
+    public Employee getMaxSalaryByDepartment(@PathVariable("id") int department) {
         return departmentService.getMaxSalaryEmployeesByDepartment(department);
     }
 
-    @GetMapping("/min-salary")
-    public Employee getMinSalaryByDepartment(@RequestParam int department) {
+    @GetMapping("/{id}/salary/min")
+    public Employee getMinSalaryByDepartment(@PathVariable("id") int department) {
         return departmentService.getMinSalaryEmployeesByDepartment(department);
+    }
+    @GetMapping("/{id}/salary/sum")
+    public Double getSumSalaryEmployeesByDepartment(@PathVariable("id") int department) {
+        return departmentService.getSumSalaryEmployeesByDepartment(department);
     }
 }

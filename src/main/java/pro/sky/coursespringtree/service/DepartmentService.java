@@ -15,6 +15,8 @@ public interface DepartmentService {
 
     Employee getMinSalaryEmployeesByDepartment(int department);
 
+    Double getSumSalaryEmployeesByDepartment(int department);
+
 }
 
 
